@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>JS Function Exercise</title>
+</head>
+
+<body>
+  <h1>Open Chrome DevTool Console to See the Outputs</h1>
+  <script>
+    let calculatorIsOn = false;
+
+    const pressPowerButton = () => {
+      if (calculatorIsOn) {
+        console.log('Calculator turning off.');
+        calculatorIsOn = false;
+      } else {
+        console.log('Calculator turning on.');
+        calculatorIsOn = true;
+      }
+    };
+
+    pressPowerButton();
+    // Output: Calculator turning on.
+
+    pressPowerButton();
+    // Output: Calculator turning off.
+
+    // Function returns the product of a and b
+    function get_production(a, b) {
+      return a * b;
+    }
+
+    // Function is called, return value will end up in x
+    let x = get_production(3, 4);
+    console.log(x)
+
+    // Function expression
+    // const square = function (number) {
+    //   return number * number;
+    // };
+
+    // console.log(square(5));
+    // Output: 25.
+
+    // Arrow Function is a shorter way
+    const square = (number) => {
+        return number * number;
+    };
+
+    console.log(square(5));
+    // Output: 25.
+
+    console.log(get_celsius(104))
+    console.log(get_celsius(89))
+
+    // Convert Fahrenheit to Celsius
+    // function declaration is hoisted
+    // to the top of the scope
+    function get_celsius(fahrenheit) {
+      return (5 / 9) * (fahrenheit - 32);
+    }
+
+    // this won't work
+    // console.log(get_celsius_arrow(104))
+    // console.log(get_celsius_arrow(89))
+
+    // Convert Fahrenheit to Celsius
+    // function expression - not hoisted
+    const get_celsius_arrow = (fahrenheit) => {
+      return (5 / 9) * (fahrenheit - 32);
+    }
+
+    console.log(get_celsius_arrow(104))
+    console.log(get_celsius_arrow(89))
+
+
+
+    /*
+    // constructor function
+    function Person(name) {
+      this.name = name;
+      this.greeting = function() {
+        console.log("Hi! My name is " + this.name + ".");
+      };
+    }
+    */
+
+    // constructor function with arrow function
+    function Person(name) {
+      this.name = name;
+      this.greeting = () => {
+        console.log("Hi! My name is " + this.name + ".");
+      };
+    }
+
+    // create object instances
+    var person1 = new Person('Bob');
+    var person2 = new Person('Sarah');
+    console.log(person1.name)
+    person1.greeting()
+    console.log(person2.name)
+    person2.greeting()
+
+    // without (), the definition is returned
+    console.log(person1.greeting)
+    /*
+    // arrow function cannot be used as constructor
+    const ArrowPerson = (name) => {
+      this.name = name;
+      this.greeting = () => {
+        console.log("Hi! My name is " + this.name + ".");
+      };
+    }
+
+    // this won't work
+    let arrow_person = new ArrowPerson('Harry');
+    */
+
+
+    function get_letter_grade(grade) {
+      if (grade >= 60) {
+        return "pass";
+      } else {
+        return "fail";
+      }
+    }
+
+    let letter_grade;
+    letter_grade = get_letter_grade(80);
+    console.log(letter_grade)
+
+    const get_letter_grade_arrow = (grade) => {
+      if (grade >= 60) {
+        return "pass";
+      } else {
+        return "fail";
+      }
+    }
+
+    letter_grade;
+    letter_grade = get_letter_grade_arrow(50);
+    console.log(letter_grade)
+
+    let orderCount = 0;
+
+    const takeOrder = (topping, crustType) => {
+      orderCount++;
+      console.log('Order: ' + crustType + ' pizza topped with ' + topping);
+    };
+
+    takeOrder('mushroom', 'thin crust');
+    takeOrder('spinach', 'whole wheat');
+    takeOrder('pepperoni', 'brooklyn style');
+
+    const getSubTotal = (itemCount) => {
+      return itemCount * 7.5;
+    };
+
+    const getTax = () => {
+     return getSubTotal(orderCount) * 0.06;
+    };
+
+    const getTotal = () => {
+      return getSubTotal(orderCount) + getTax();
+    };
+
+    console.log(getSubTotal(orderCount));
+    console.log(getTotal());
+
+    hoisting = 5
+    console.log(hoisting);
+
+    // normal arrow functions
+    const multiplyByNineFifths = (celsius) => {
+      return celsius * (9/5);
+    };
+
+    const getFahrenheit = (celsius) => {
+      return multiplyByNineFifths(celsius) + 32;
+    };
+
+    // condensed arrow functions
+    // const multiplyByNineFifths = celsius => celsius * (9/5);
+    //
+    // const getFahrenheit = celsius => multiplyByNineFifths(celsius) + 32;
+    //
+    // console.log('The temperature is ' + getFahrenheit(15) + '°F');
+
+    let status = "clear" // global scope
+    function get_sky_status() {
+      let color = 'blue'; // block scope
+      console.log(color); // blue
+      console.log(status); // clear
+    };
+
+    get_sky_status(); // blue
+    console.log(status); // clear
+    console.log(color); // undefined error
+
+
+  </script>
+</body>
+
+</html>

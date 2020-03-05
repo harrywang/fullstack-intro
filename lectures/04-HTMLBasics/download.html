@@ -1,0 +1,191 @@
+
+
+
+
+
+
+<!doctype html>
+
+<!--[if lt IE 8]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if (gt IE 8)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  
+  <title>University of Delaware Central Authentication Service</title> 
+
+  <script src="/themes/javascript/jquery/1.7.1/jquery-1.7.1.min.js"></script>
+  <script src="/themes/secureheader/appmenu.js"></script> 
+  <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');</script>
+ 
+  <link rel="stylesheet" href="/themes/css/validation.css" /> 
+  <link rel="stylesheet" href="/themes/css/udbuttons.css" /> 
+  <link rel="stylesheet" href="/themes/secureheader/secureheader.css" /> 
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    ul.ls-radio-check {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    ul.ls-radio-check li {
+      padding-bottom: 5px;
+    }
+    ul.ls-radio-check input, ul.ls-radio-check label {
+      display: inline;
+    }
+    #itwd-cas-footer {
+        display: block;
+        margin: 2em auto;
+        padding: 17px;
+        border-top: 8px solid #002663;
+    }
+    .success {
+      background-color: rgba(0, 182, 0, 0.16);
+      padding: 1em !important;
+      font-weight: bold;
+      color: #007200;
+    }
+  </style>
+  
+</head>
+
+<body>
+
+<div id="ITWD_header_container">
+  <div id="ITWD_header"><img src="/themes/secureheader/headerbluetext.png" alt="UD home page" id="ITWD_UDLogo" /></div>
+  <div style="clear: both;"></div>
+</div><!-- end div#ITWD_header_container -->
+
+
+<div id="ITWD_appBar_container">
+  <div id="ITWD_appBar">
+    <h1>Central Authentication Service</h1>
+    <div id="ITWD_menuicon"></div>
+    <ul id="ITWD_appMenu">
+      <li><a id="ITWD_helplink" href="http://www.udel.edu/it/help/CAS/" target="_blank">Help</a></li>
+      
+ 
+    </ul>
+    <div style="clear: both;"></div>
+  </div><!-- end div#ITWD_appBar -->
+  
+</div><!-- end div#ITWD_appBar_container -->
+
+<div id="content" role="main">
+
+
+<form id="fm1" class="fm-v clearfix" action="/cas/login?service=https%3A%2F%2Fudel.instructure.com%2Flogin%2Fcas" method="post">
+	<!-- form:errors path="*" id="msg" cssClass="itwd-cas-errors" element="div" /-->
+	
+	
+
+	
+	
+	
+	
+	
+    <fieldset class="itwd-cas-fieldset" id="itwd-cas-netid">
+      
+      <legend>Login with your UD ID or username and password</legend>
+      <p>Username is either your UDelNet ID or your email address. UD ID is your numeric University identifier.<br/> <a href="http://www.udel.edu/cas-help" target="_blank" title="link opens new window">More help.</a></p>
+      <div>
+        <label for="udelnetid"><strong><span class="accesskey">U</span>sername or UD ID</strong>:</label>
+        <input type="text" name="udelnetid" id="udelnetid" tabindex="1" size="30" maxlength="50" autocomplete="off"/><span class="itwd-cas-email"></span>
+      </div>
+      <div>
+        <label for="pword"><strong><span class="accesskey">P</span>assword:</strong></label>
+        
+        <input type="password" name="pword" id="pword" tabindex="2" size="30" maxlength="255" autocomplete="off"/>
+      </div>
+      <button type="submit" name="action" class="itwd-cas-btn" tabindex="3">Log in</button>
+      <p style="padding-top:2em;"><a href="http://www.udel.edu/cas-help-udelnetid" target="_blank" title="link opens new window">Forgot your Username or Password?</a></p>
+    </fieldset>
+	
+
+	
+    <fieldset class="itwd-cas-fieldset" id="itwd-cas-udid">
+	
+	<legend>...or with your UD ID and PIN</legend>
+	<p>UD ID is your University identifier. All employees, students, and alumni have a UD ID. <a href="http://www.udel.edu/cas-help" target="_blank" title="link opens new window">More help.</a></p>
+      <div>
+		<label for="udid"><strong>U<span class="accesskey">D</span> ID:</strong></label>
+        <input type="text" name="udid" id="udid" tabindex="4" size="30" maxlength="11" autocomplete="off"/>
+      </div>
+      <div>
+		<label for="pin"><strong>P<span class="accesskey">I</span>N:</strong></label>
+        <input type="password" name="pin" id="pin"  tabindex="5" size="30" maxlength="255" autocomplete="off"/>
+      </div>
+      <button type="submit" name="action" class="itwd-cas-btn" tabindex="6">Log in</button>
+      <p style="padding-top:2em;"><a href="http://www.udel.edu/cas-help-udid" target="_blank" title="link opens new window">Forgot your UD ID or PIN?</a></p>
+    </fieldset>
+	
+
+	<input type="hidden" id="ud-itwd-username" name="username"/>
+	<input type="hidden" id="ud-itwd-password" name="password"/>
+
+	<input type="hidden" name="lt" value="LT-290821-vRRGsVIwDvn7GfFg0BKKSOpM1G3hsc" />
+	<input type="hidden" name="execution" value="e1s1" />
+	<input type="hidden" name="_eventId" value="submit" />
+
+</form>
+
+<script>
+	$('#fm1').submit(function() {
+		if( typeof $('#udelnetid').val() != 'undefined' && $('#udelnetid').val() != "" ) {
+			$('#ud-itwd-username').val($('#udelnetid').val());
+			
+			if ( $('#udelnetid').val().indexOf("@") > 1) {
+				parts = $('#udelnetid').val().split("@");
+				if ( parts[1].toLowerCase() == "udel.edu" )
+					$('#ud-itwd-username').val(parts[0]);
+			}
+			$('#ud-itwd-password').val($('#pword').val());
+		} else if ( typeof $('#udid').val() != 'undefined' && $('#udid').val() != "" ) {
+			$('#ud-itwd-username').val('e*'+$('#udid').val());
+			$('#ud-itwd-password').val($('#pin').val());
+		}
+		return true;
+	});
+	
+	if(typeof $('#udelnetid').val() != 'undefined')
+		$('#udelnetid').focus();
+	else if(typeof $('#udid').val() != 'undefined')
+		$('#udid').focus();
+	
+</script>
+
+<script src="/themes/javascript/jquery/plugins/popup.js"></script>
+
+<div style="padding:0 1em;">
+<p>Some systems may not be available between approximately 1:00 a.m. and 1:30 a.m. EST Monday - Saturday, and between 3:30 a.m. and 7:30 a.m. EST on Sundays due to system maintenance.</p>
+</div>
+
+<div id="itwd-cas-footer">
+  <a href="http://www.udel.edu" class="itwd-cas-logo"><img src="/images/udlogo-footer.png"></a>
+  <ul>
+    <li><a href="http://www.udel.edu">University of Delaware</a>&nbsp;&nbsp;&nbsp; <span style="white-space:nowrap;">Newark, DE 19716&nbsp;&nbsp;&nbsp;&nbsp;USA</span></li>
+    <li>Phone:&nbsp;302-831-6000&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.udel.edu/help">www.udel.edu/help</a></li>
+    <li><a href="http://www.udel.edu/home/comments.html" target="_blank" title="opens in a new window">Comments</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.udel.edu/home/legal-notices.html" target="_blank" title="opens in a new window">Legal Notices</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.udel.edu/home/legal-notices/accessibility/" target="_blank" title="opens in a new window">Accessibility</a></li>
+  </ul>
+</div>
+
+  </div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-971836-3");
+pageTracker._trackPageview();
+</script>
+
+</body>
+
+</html>

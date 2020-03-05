@@ -1,0 +1,81 @@
+body {
+  margin     : 0;
+  padding    : 0;
+  background : #141E30;
+}
+
+h1 {
+  width       : 100%;
+  padding-top : 100px;
+  color       : #FFF;
+  text-align  : center;
+  font-family : Georgia;
+  font-size   : 2em;
+}
+
+h2 {
+  width          : 70%;
+  padding-bottom : 30px;
+  color          : rgba(255, 255, 255, 0.5);
+  border-bottom  : 1px solid rgba(255, 255, 255, 0.5);
+  text-align     : left;
+  font-family    : Georgia;
+  font-size      : 22px;
+  font-weight    : 100;
+  line-height    : 24px;
+}
+
+p {
+  width       : 100%;
+  color       : AliceBlue;
+  text-align  : left;
+  font-family : Helvetica;
+  font-size   : 18px;
+  font-weight : bold;
+  line-height : 1.3em;
+}
+
+.byline {
+  float          : left;
+  padding-left   : 10px;
+  color          : rgba(255, 255, 255, 0.5);
+  text-transform : uppercase;
+  font-family    : Helvetica;
+  font-size      : 14px;
+}
+
+.caption {
+  display          : block;
+  position         : relative;
+  top              : 80%;
+  width            : 60%;
+  margin-left      : 20px;
+  padding          : 10px;
+  color            : black;
+  opacity          : 0.75;
+  background-color : white;
+  font-family      : 'Playfair Display',
+                     serif;
+  font-size        : 14px;
+  font-style       : italic;
+  line-height      : 14px;
+}
+
+.content {
+  padding : 40px;
+}
+
+.image {
+  height              : 300px;
+  background-image    : url("https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-2/soccer.jpeg");
+  background-position : center;
+  background-size     : cover;
+}
+
+.writer-img {
+  width              : 50px;
+  float              : left;
+  -moz-box-shadow    : 5px 0px 5px 0px rgba(0, 0, 50, 0.97);
+  -webkit-box-shadow : 5px 0px 5px 0px rgba(0, 0, 50, 0.97);
+  box-shadow         : 5px 0px 5px 0px rgba(0, 0, 50, 0.97);
+}

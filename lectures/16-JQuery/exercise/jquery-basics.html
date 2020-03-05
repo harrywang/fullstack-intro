@@ -1,0 +1,103 @@
+<html>
+<head>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+  <body>
+    <a href="http://www.facebook.com">website 1</a>
+    <a id="google" href="http://www.google.com">website 2</a>
+    <a class="my-link" href="http://www.google.com">website 3</a>
+    <a class="my-link" href="http://www.google.com">website 4</a>
+
+    <h1 id="main-heading">DOM is cool</h1>
+    <button type="button" id="change-color">Change Heading to Red</button>
+    <button type="button" id="reset">Reset</button>
+    <button type="button" id="toggle">Toggle</button>
+
+    <div class="skillset">
+      <div class="skill-html">
+        <h1>HTML and CSS</h1>
+        <button type="button" class="projects-button">Recent Projects</button>
+        <ul class="projects">
+          <li>Broadway</li>
+          <li>MOVE</li>
+        </ul>
+      </div>
+
+      <div class="skill-js">
+        <h1>JavaScript</h1>
+        <button type="button" class="projects-button">Recent Projects</button>
+        <ul class="projects">
+          <li>Password Validator</li>
+          <li>Whale Talk</li>
+        </ul>
+
+        <ol class="projects">
+          <li>assignment 1</li>
+          <li>assignment 2</li>
+        </ol>
+      </div>
+
+      <div class="skill-jquery">
+        <h1>jQuery</h1>
+        <button type="button" class="projects-button">Recent Projects</button>
+        <ul class="projects">
+          <li>Coming soon...</li>
+        </ul>
+      </div>
+    </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script>
+    function main() {
+      // document.getElementById("google").innerHTML = "Google";
+      $('#google').html("Google");
+
+      // let links = document.getElementsByTagName("a");
+      let links = $('a');
+      links[0].innerHTML="Twitter";
+      links[0].href="http://www.twitter.com";
+      // let my_links = document.getElementsByClassName("my-link");
+      let my_links = $('.my-link')
+      my_links[0].innerHTML="Facebook";
+      my_links[0].href="http://www.facebook.com";
+      my_links[1].innerHTML="TBD";
+      my_links[1].href="#";
+      my_links[1].style.color="red";
+
+      $('#change-color').click(function(){
+        $('.my-link').hide();
+        $('#main-heading').css("color", "red" );
+      });
+
+      $('#reset').click(function(){
+        $('.my-link').fadeIn(500);
+        $('#main-heading').css("color", "black");
+      });
+
+      $('#toggle').click(function(){
+        $('.my-link').toggle();
+      });
+
+
+      $('.skillset').hide();
+      $('.skillset').fadeIn(5000);
+
+      $('.projects').hide();
+
+      $('.projects-button').click(function() {
+        $(this).next().slideToggle(400);
+        $(this).toggleClass('active');
+        $(this).text('Projects Viewed');
+      });
+    }
+
+    $(document).ready(main);
+
+  </script>
+  </body>
+</html>
