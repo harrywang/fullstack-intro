@@ -1,5 +1,5 @@
 # About
-This repo contains my course materials for Introduction to Web Application Development taught at the University of Delaware.
+This repo contains my course materials for Introduction to Web Application Development taught at the University of Delaware in Fall 2017.
 
 Key topics (all very basics):
 
